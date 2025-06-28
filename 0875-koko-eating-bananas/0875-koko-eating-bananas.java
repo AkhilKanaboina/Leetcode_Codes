@@ -8,8 +8,11 @@ class Solution {
         while(left<=right){
             int mid=left+(right-left)/2;
             long temp=0;
-            for (int pile : piles) {
-                temp += (pile + mid - 1) / mid;  // same as ceil
+            for(int i:piles){
+                temp+=(i/mid);
+                if(0<(i%mid)){
+                    temp++;
+                }
             }
             if(temp<=h){
                 ans=mid;
