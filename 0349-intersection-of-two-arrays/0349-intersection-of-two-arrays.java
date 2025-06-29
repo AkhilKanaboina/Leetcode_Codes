@@ -19,12 +19,12 @@ class Solution {
             }
         }
         
-        int arr[]=new int[a.size()];
-        int key=0;
-        for(int i:a){
-            arr[key]=i;
-            key++;
-        }
+        int arr[]=a.stream().mapToInt(i->i).toArray();
+        // int key=0;
+        // for(int i:a){
+        //     arr[key]=i;
+        //     key++;
+        // }
         return arr;    
     }
 }
