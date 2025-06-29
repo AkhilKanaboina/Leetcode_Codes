@@ -4,7 +4,7 @@ class Solution {
         int sum=0,rem=0;
 
         HashMap<Integer,Integer> mp=new HashMap<>();
-        mp.put(0,-1);
+     //   mp.put(0,-1);
         for(int i=0;i<n;i++){
             sum+=nums[i];
             rem=sum%k;
