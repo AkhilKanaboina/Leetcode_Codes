@@ -1,9 +1,9 @@
 class Solution {
     public boolean isPowerOfThree(int n) {
-        int low=0,high=15;
+        int low=0,high=21;
         while(Math.pow(3,high)<n){
             low=high;
-            high+=15;
+            high+=21;
         }
         while(low<=high){
             int mid=low+(high-low)/2;
