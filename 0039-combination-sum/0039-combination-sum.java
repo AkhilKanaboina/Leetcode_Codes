@@ -16,9 +16,9 @@ class Solution {
             ans.add(new ArrayList<>(list));
             return;
         }
-        if(currSum>target){
-            return;
-        }
+        // if(currSum>target){
+        //     return;
+        // }
         for(int i=index;i<n;i++){
             if((currSum+nums[i])<=target){
                 currSum+=nums[i];
