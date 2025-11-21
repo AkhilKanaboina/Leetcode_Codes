@@ -6,7 +6,7 @@ class Solution {
         }
 
         int sumTable[]=new int[max+1];
-        Arrays.fill(sumTable,0);
+     //   Arrays.fill(sumTable,0);
         for(int num:nums){
             sumTable[num]+=num;
         }
