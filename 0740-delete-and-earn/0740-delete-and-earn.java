@@ -1,11 +1,14 @@
 class Solution {
     public int deleteAndEarn(int[] nums) {
-        int sumTable[]=new int[10010];
-        Arrays.fill(sumTable,0);
         int max=Integer.MIN_VALUE;
         for(int num:nums){
-            sumTable[num]+=num;
             max=Math.max(max,num);
+        }
+
+        int sumTable[]=new int[max+1];
+        Arrays.fill(sumTable,0);
+        for(int num:nums){
+            sumTable[num]+=num;
         }
         int dp[]=new int[max+1];
         dp[0]=sumTable[0];
