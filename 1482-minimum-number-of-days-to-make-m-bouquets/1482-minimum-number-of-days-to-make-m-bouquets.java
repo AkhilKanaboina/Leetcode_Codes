@@ -35,8 +35,6 @@ class Solution {
             if(val>=m){
                 ans=Math.min(mid,ans);
                 b=true;
-            }
-            if(val>=m){
                 max=mid-1;
             }else {
                 min=mid+1;
