@@ -1,7 +1,6 @@
 class MyStack {
     Deque<Integer> queue;
     Deque<Integer> temp;
-    Deque<Integer> temp2;
     public MyStack() {
         queue=new ArrayDeque<>();
         temp=new ArrayDeque<>();
@@ -12,7 +11,7 @@ class MyStack {
         while(!queue.isEmpty()){
             temp.offer(queue.poll());
         }
-        temp2=queue;
+        Deque<Integer> temp2=queue;
         queue=temp;
         temp=temp2;
     }
