@@ -10,8 +10,9 @@ class MyStack {
         while(!queue.isEmpty()){
             temp.offer(queue.poll());
         }
+        Deque<Integer> temp2=queue;
         queue=temp;
-        temp=new ArrayDeque<>();
+        temp=temp2;
     }
     
     public int pop() {
