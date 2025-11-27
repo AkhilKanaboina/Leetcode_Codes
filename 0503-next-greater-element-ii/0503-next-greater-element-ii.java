@@ -14,7 +14,7 @@ class Solution {
             stack.push(nums[i]);
             index.push(i);
             if( i==n-1 && once && !stack.isEmpty()){
-                i=0;
+                i=-1;
                 once=false;
             }
         }
