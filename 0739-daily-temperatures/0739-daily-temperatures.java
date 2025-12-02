@@ -10,9 +10,9 @@ class Solution {
             }
             stack.push(i);
         }
-        while(!stack.isEmpty()){
-            result[stack.pop()]=0;
-        }
+        // while(!stack.isEmpty()){
+        //     result[stack.pop()]=0;
+        // }
         return result;
     }
 }
