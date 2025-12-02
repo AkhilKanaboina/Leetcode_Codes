@@ -19,9 +19,9 @@ class Solution {
             }
             lessFreq=sum-max;
             if(lessFreq>k){
-                if(hash[s.charAt(left)-'A']!=max){
-                    lessFreq--;
-                }
+                // if(hash[s.charAt(left)-'A']!=max){
+                //     lessFreq--;
+                // }
                 hash[s.charAt(left)-'A']-=1;
                 left++;
             }
