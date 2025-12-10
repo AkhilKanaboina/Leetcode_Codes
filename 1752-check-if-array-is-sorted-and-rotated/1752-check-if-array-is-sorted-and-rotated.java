@@ -14,17 +14,17 @@ class Solution {
         if(counter==-1){
             return true;
         }
-        for(int i=counter;i<n-1;i++){
-            if(nums[i]>nums[i+1]){
-                return false;
-            }
-        }
-      //  for(int i=0;i<counter;i++){
+        // for(int i=counter;i<n-1;i++){
+        //     if(nums[i]>nums[i+1]){
+        //         return false;
+        //     }
+        // }
+     
             if(nums[0]>=nums[n-1]){
               return true;
             }else{
                 return false;
             }
-       // }
+
     }
 }
