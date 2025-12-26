@@ -10,11 +10,11 @@ class Solution {
         int count=0;
         int left=0;
         for(int i=0;i<s.length();i++){
-            if(s.charAt(i)==target){
+            if(s.charAt(i)!=target){
                 count++;
             }
             if(count>max){
-                if(s.charAt(left)==target){
+                if(s.charAt(left)!=target){
                     count--;
                 }
                 left++;
