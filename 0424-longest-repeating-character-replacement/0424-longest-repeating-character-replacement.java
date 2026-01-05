@@ -5,6 +5,7 @@ class Solution {
         int left=0;
         int n=s.length();
         int counter=0;
+        int ans=0;
         int max=0,sum=0,lessFreq=0;
         for(int i=0;i<n;i++){
             int index=s.charAt(i)-'A';
@@ -18,14 +19,16 @@ class Solution {
                 sum+=hash[ii];
             }
             lessFreq=sum-max;
-            if(lessFreq>k){
-                // if(hash[s.charAt(left)-'A']!=max){
-                //     lessFreq--;
+            while(sum-max>k){
+                // if(hash[s.charAt(left)-'A']==max){
+                    
                 // }
                 hash[s.charAt(left)-'A']-=1;
                 left++;
+                sum--;
             }
+            ans=Math.max(ans,i-left+1);
         }
-        return n-left;
+        return ans;
     }
 }
