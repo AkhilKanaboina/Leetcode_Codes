@@ -4,14 +4,21 @@ class Solution {
         for(char c: s.toCharArray()){
             map.put(c,map.getOrDefault(c,0)+1);
         }
-        List<Character> list=new ArrayList<>();
-        for(char c:map.keySet()){
-            list.add(c);
+        List<Character>[] buckets=new List[s.length()+1];
+
+        for(Character c: map.keySet()){
+            if(buckets[map.get(c)]==null)
+            buckets[map.get(c)]=new ArrayList<>();
+            buckets[map.get(c)].add(c);
         }
-        Collections.sort(list,(a,b)->map.get(b)-map.get(a));
-        StringBuffer str=new StringBuffer();
-        for(char c:list){
-            str.append(String.valueOf(c).repeat(map.get(c)));
+        StringBuilder str=new StringBuilder();
+        for(int i=s.length();i>0;i--){
+            if(buckets[i]!=null){
+                for(char cha: buckets[i]){
+                    for(int j=1;j<=i;j++)
+                    str.append(cha);
+                }
+            }
         }
         return str.toString();
     }
