@@ -15,17 +15,6 @@ class Solution {
         }
         return true;
     }
-    public boolean isPossible(String s,int left,int right){
-        if(left>=right){
-            return true;
-        }
-        if(s.charAt(left)==s.charAt(right)){
-            return isPossible(s,left+1,right-1);
-        }else if(s.charAt(left)!=s.charAt(right)){
-            return isPossible(s,left+1,right)||isPossible(s,left,right-1);
-        }
-        return true;
-    }
     public boolean isPalindrome(String s,int left,int right){
         while(left<=right){
             if(s.charAt(left)!=s.charAt(right)){
