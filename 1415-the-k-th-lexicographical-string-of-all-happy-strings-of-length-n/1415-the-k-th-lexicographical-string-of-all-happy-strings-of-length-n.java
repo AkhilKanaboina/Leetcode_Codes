@@ -15,10 +15,7 @@ class Solution {
             return ;
         }
         for(int i=0;i<c.length;i++){
-            if(len>0 && s.charAt(len-1)!=c[i]){
-                recursion(n,len+1,s+c[i],c);
-            }
-            if(len==0){
+            if(len==0 || s.charAt(len-1)!=c[i]){
                 recursion(n,len+1,s+c[i],c);
             }
         }
