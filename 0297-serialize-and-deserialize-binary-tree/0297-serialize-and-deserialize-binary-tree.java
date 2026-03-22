@@ -41,12 +41,12 @@ public class Codec {
         while(!queue.isEmpty() && index<n){
             TreeNode node=queue.poll();
 
-            if(index<n && !strs[index].equals("null")){
+            if(!strs[index].equals("null")){
                 node.left=new TreeNode(Integer.parseInt(strs[index]));
                 queue.offer(node.left);
             }
             index++;
-            if(index<n && !strs[index].equals("null")){
+            if(!strs[index].equals("null")){
                 node.right=new TreeNode(Integer.parseInt(strs[index]));
                 queue.offer(node.right);
             }
