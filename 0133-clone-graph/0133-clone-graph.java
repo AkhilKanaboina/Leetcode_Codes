@@ -19,37 +19,28 @@ class Node {
 */
 
 class Solution {
-  
-    // A HashMap to keep track of all the nodes which have already been copied.
-    private Map<Node, Node> visited = new HashMap<>();
-
-    // This function returns the clone of the graph.
     public Node cloneGraph(Node node) {
-        // If the input node is null, then return null.
-        if (node == null) {
-            return null;
+        if(node==null) return node;
+
+        return createClone(node);
+    }
+    public Node createClone(Node node){
+        Queue<Node> queue=new LinkedList<>();
+        queue.offer(node);
+        HashMap<Node,Node> map=new HashMap<>();
+        map.put(node,new Node(node.val));
+        while(!queue.isEmpty()){
+            Node current=queue.poll();
+
+            for(Node neighbor:current.neighbors){
+                
+                if(!map.containsKey(neighbor)){
+                    map.put(neighbor,new Node(neighbor.val));
+                    queue.offer(neighbor);//not visited so clone node not created
+                }
+                map.get(current).neighbors.add(map.get(neighbor));
+            }
         }
-      
-        // If the node has already been visited i.e., already cloned,
-        // return the cloned node from the map.
-        if (visited.containsKey(node)) {
-            return visited.get(node);
-        }
-      
-        // Create a new node with the value of the input node (clone it).
-        Node cloneNode = new Node(node.val);
-        // Mark this node as visited by putting into the visited map.
-        visited.put(node, cloneNode);
-      
-        // Iterate over all the neighbors of the input node.
-        for (Node neighbor : node.neighbors) {
-            // Perform a depth-first search (DFS) for each neighbor,
-            // and add the clone of the neighbor to the neighbors list
-            // of the clone node.
-            cloneNode.neighbors.add(cloneGraph(neighbor));
-        }
-      
-        // Return the cloned graph node.
-        return cloneNode;
+        return map.get(node);
     }
 }
