@@ -1,43 +1,37 @@
 class Solution {
-    Set<String> set=new HashSet<>();
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-       for(String s:wordList){
-        set.add(s);
-       }
-       int ans=bfs(beginWord,endWord);
-       return (ans==Integer.MAX_VALUE)?0:ans;
-    }
-    public int bfs(String beginWord,String endWord){
-        Queue<Pair> queue=new LinkedList<>();
-        queue.add(new Pair(beginWord,1));
-        int ans=Integer.MAX_VALUE;
+        HashSet<String> set=new HashSet<>();
+        char alphbets[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+        for(String s:wordList){
+            set.add(s);
+        }
+        Queue<String> queue=new LinkedList<>();
+        queue.offer(beginWord);
+
+        int counter=1;
         while(!queue.isEmpty()){
-            String temp=queue.peek().first;
-            int level=queue.peek().second;
-            queue.remove();
-            if(temp.equals(endWord)){
-                ans=Math.min(ans,level);
-            }
-            for(int i=0;i<temp.length();i++){
-                //char change
-                for(char c='a';c<='z';c++){
-                    StringBuilder temp2=new StringBuilder(temp);
-                    temp2.setCharAt(i,c);
-                    if(set.contains(temp2.toString()) && !temp2.equals(temp)){
-                        queue.add(new Pair(temp2.toString(),level+1));
-                        set.remove(temp2.toString());
+            int size=queue.size();
+            for(int i=0;i<size;i++){
+                String str=queue.poll();
+                set.remove(str);
+                if(endWord.equals(str)){
+                    return counter;
+                }
+                char c[]=str.toCharArray();
+                for(int j=0;j<str.length();j++){
+                    char orginal=c[j];
+                    for(char alphbet:alphbets){
+                        c[j]=alphbet;
+                        if(set.contains(new String(c))){
+                            queue.add(new String(c));
+                            set.remove(new String(c));
+                        }
                     }
+                    c[j]=orginal;
                 }
             }
+            counter++;
         }
-        return ans;
-    }
-}
-class Pair{
-    String first;
-    int second;
-    Pair(String s,int n){
-        this.first=s;
-        this.second=n;
+        return 0;
     }
 }
